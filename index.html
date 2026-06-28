@@ -1075,13 +1075,14 @@
 
   <script>
     // Theme toggle
-    function toggleTheme() {
-      const html = document.documentElement;
-      const isLight = html.getAttribute('data-theme') === 'light';
-      html.setAttribute('data-theme', isLight ? '' : 'light');
-      document.getElementById('themeIcon').textContent  = isLight ? '☀️' : '🌙';
-      document.getElementById('themeLabel').textContent = isLight ? 'Light' : 'Dark';
-    }
+function toggleTheme() {
+  const html = document.documentElement;
+  const isLight = html.getAttribute('data-theme') === 'light';
+  html.setAttribute('data-theme', isLight ? '' : 'light');
+  // When switching TO dark (isLight=true), show moon. When switching TO light, show sun.
+  document.getElementById('themeIcon').textContent  = isLight ? '🌙' : '☀️';
+  document.getElementById('themeLabel').textContent = isLight ? 'Dark' : 'Light';
+}
 
     // Cursor glow
     const glow = document.getElementById('glow');
